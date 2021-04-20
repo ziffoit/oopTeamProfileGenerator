@@ -8,12 +8,12 @@ test("Can create an employee out of the constructor.", () => {
 test("Can set a name in the constructor.", () => {
     const name = "Kevin"
     const E = new Employee(name, "id", "email")
-    expect(E.getName()).toBe(name)
+    expect(E.name).toBe(name)
 })
 test("Can set an id in the constructor.", () => {
     const id = "1"
     const E = new Employee("name", id, "email")
-    expect(E.getId()).toBe(id)
+    expect(E.id).toBe(id)
 })
 test("Can set an email in the constructor.", () => {
     const email = "ziffoit@gmail.com"
@@ -22,5 +22,5 @@ test("Can set an email in the constructor.", () => {
 })
 test("Employees have a role of employee.", () => {
     const E = new Employee("name", "id", "email")
-    expect(E.getRole()).toBe('Employee')
+    expect(E.getRole()).toBe('employee')
 })

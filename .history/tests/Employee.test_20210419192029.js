@@ -22,5 +22,5 @@ test("Can set an email in the constructor.", () => {
 })
 test("Employees have a role of employee.", () => {
     const E = new Employee("name", "id", "email")
-    expect(E.getRole()).toBe('Employee')
+    expect(E.getRole()).toBe('employee')
 })

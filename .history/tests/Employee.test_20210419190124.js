@@ -4,23 +4,25 @@ const Employee = require("../lib/Employee")
 test("Can create an employee out of the constructor.", () => {
     const E = new Employee("name", "id", "email")
     expect(typeof(E)).toBe("object")
+    expect(
 })
-test("Can set a name in the constructor.", () => {
+test("Can set a name to the constructor.", () => {
     const name = "Kevin"
     const E = new Employee(name, "id", "email")
-    expect(E.getName()).toBe(name)
+    expect(E.name).toBe(name)
 })
-test("Can set an id in the constructor.", () => {
+test("Can set an id to the constructor.", () => {
     const id = "1"
     const E = new Employee("name", id, "email")
-    expect(E.getId()).toBe(id)
+    expect(E.id).toBe(id)
 })
-test("Can set an email in the constructor.", () => {
+test("Can set an email to the constructor.", () => {
     const email = "ziffoit@gmail.com"
     const E = new Employee("name", "id", email)
-    expect(E.getEmail()).toBe(email)
+    expect(E.email).toBe(email)
 })
-test("Employees have a role of employee.", () => {
-    const E = new Employee("name", "id", "email")
-    expect(E.getRole()).toBe('Employee')
+test("Can set an email to the constructor.", () => {
+    const email = "ziffoit@gmail.com"
+    const E = new Employee("name", "id", email)
+    expect(E.email).toBe(email)
 })
