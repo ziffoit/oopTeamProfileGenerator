@@ -1,5 +1,13 @@
-const { expect, test } = require("@jest/globals")
+const { expect } = require("@jest/globals")
+const Intern = require("../lib/Intern")
 
-test("", () =>  {
-    expect(true).toBe(true)
+test("Update role with Intern.", () => {
+    const E = new Intern("name", "id", "email", "school")
+    expect(E.getRole()).toBe('Intern')
+})
+
+test("Can set a school in the constructor.", () => {
+    const school = "DU"
+    const E = new Intern("name", "id", "email", school)
+    expect(E.getSchool()).toBe(school)
 })
