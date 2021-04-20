@@ -6,8 +6,8 @@ test("Update role with Engineer.", () => {
     expect(E.getRole()).toBe('Engineer')
 })
 
-// test("Can set a name in the constructor.", () => {
-//     const name = "Kevin"
-//     const E = new Employee(name, "id", "email")
-//     expect(E.getName()).toBe(name)
-// })
+test("Can set a github username in the constructor.", () => {
+    const github = "ziffoit"
+    const E = new Engineer("name", "id", "email", github)
+    expect(E.getGithub()).toBe(github)
+})
