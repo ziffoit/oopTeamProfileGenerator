@@ -26,7 +26,7 @@ const generateTeam = (team) => {
         );
     };
     const generateEngineer = (engineer) => {
-        return generateEmployee(engineer, `GitHub: ${engineer.getGithub()}`);
+        return generateEmployee(engineer, `GitHub: <a target="_blank" href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a>`);
     };
     const generateIntern = (intern) => {
         return generateEmployee(intern, `School: ${intern.getSchool()}`);
