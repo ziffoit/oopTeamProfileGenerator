@@ -42,7 +42,7 @@ async function askForManagerInfo() {
     ])
 
     const {name, id, email, officeNumber} = managerInfo
-    team = team.append(new Manager(name, id, email, officeNumber))
+    team.push(new Manager(name, id, email, officeNumber))
     addEngineerOrIntern()
 }
 
@@ -70,7 +70,7 @@ async function askForEngineerInfo() {
         }
     ])
     const {name, id, email, github} = engineerInfo
-    team = team.append(new Engineer(name, id, email, github))
+    team.push(new Engineer(name, id, email, github))
     isTeamComplete()
 }
 
@@ -98,7 +98,7 @@ async function askForInternInfo() {
         }
     ])
     const {name, id, email, school} = internInfo
-    team = team.append(new Intern(name, id, email, school))
+    team.push(new Intern(name, id, email, school))
     isTeamComplete()
 }
 
