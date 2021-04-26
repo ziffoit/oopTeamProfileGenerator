@@ -1,5 +1,10 @@
 const inquirer = require("inquirer");
-const manager = require("./lib/Manager");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const generateTeam = require("./src/template")
+const fs = require('fs');
+const team = []
 // prompts for name id email role and role item
 // WHEN I start the application
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
@@ -12,8 +17,8 @@ const manager = require("./lib/Manager");
 // WHEN I decide to finish building my team
 // THEN I exit the application, and the HTML is generated
 
-function askForManagerInfo() {
-    const managerInfo = inquirer.prompt([
+async function askForManagerInfo() {
+    const managerInfo = await inquirer.prompt([
         {
             type: "input",
             name: "name",
@@ -35,12 +40,14 @@ function askForManagerInfo() {
             message: "What is the manager's office number?"
         }
     ])
-    // TODO cr
+
+    const {name, id, email, officeNumber} = managerInfo
+    team = team.append(new Manager(name, id, email, officeNumber))
     addEngineerOrIntern()
 }
 
-function askForEngineerInfo() {
-    const engineerInfo = inquirer.prompt([
+async function askForEngineerInfo() {
+    const engineerInfo = await inquirer.prompt([
         {
             type: "input",
             name: "name",
@@ -62,10 +69,13 @@ function askForEngineerInfo() {
             message: "What is the engineer's github username?"
         }
     ])
+    const {name, id, email, github} = engineerInfo
+    team = team.append(new Engineer(name, id, email, github))
+    isTeamComplete()
 }
 
-function askForInternInfo() {
-    const internInfo = inquirer.prompt([
+async function askForInternInfo() {
+    const internInfo = await inquirer.prompt([
         {
             type: "input",
             name: "name",
@@ -87,6 +97,9 @@ function askForInternInfo() {
             message: "What is the intern's school?"
         }
     ])
+    const {name, id, email, school} = internInfo
+    team = team.append(new Intern(name, id, email, school))
+    isTeamComplete()
 }
 
 function addEngineerOrIntern() {
@@ -117,12 +130,15 @@ function isTeamComplete() {
     ])
     .then((val) => {
         if (val.complete) {
-            // template function
+            const teamProfile = generateTeam(team)
+            fs.writeFile('./dist/index.html', teamProfile)
         } else {
             addEngineerOrIntern()
         }
 
     })
 }
+
+
 
 askForManagerInfo()
