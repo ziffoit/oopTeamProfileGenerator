@@ -134,7 +134,7 @@ function isTeamComplete() {
             fs.writeFile('./dist/index.html', teamProfile, function (err) {
                 if (err) throw err;
                 console.log('Saved!');
-              });
+            });
         } else {
             addEngineerOrIntern()
         }
