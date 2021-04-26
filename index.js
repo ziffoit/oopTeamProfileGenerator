@@ -131,7 +131,10 @@ function isTeamComplete() {
     .then((val) => {
         if (val.complete) {
             const teamProfile = generateTeam(team)
-            fs.writeFile('./dist/index.html', teamProfile)
+            fs.writeFile('./dist/index.html', teamProfile, function (err) {
+                if (err) throw err;
+                console.log('Saved!');
+              });
         } else {
             addEngineerOrIntern()
         }

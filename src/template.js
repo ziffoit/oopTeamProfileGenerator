@@ -22,14 +22,14 @@ const generateTeam = (team) => {
     const generateManager = (manager) => {
         return generateEmployee(
             manager,
-            `Office number: ${manager.getOfficeNumber}`
+            `Office number: ${manager.getOfficeNumber()}`
         );
     };
     const generateEngineer = (engineer) => {
-        return generateEmployee(engineer, `GitHub: ${engineer.getGithub}`);
+        return generateEmployee(engineer, `GitHub: ${engineer.getGithub()}`);
     };
     const generateIntern = (intern) => {
-        return generateEmployee(intern, `School: ${intern.getSchool}`);
+        return generateEmployee(intern, `School: ${intern.getSchool()}`);
     };
     const html = [];
 
